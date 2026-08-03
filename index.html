@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhrubjyoti Sharma — Structural Biology</title>
+<meta name="description" content="Dhrubjyoti Sharma, Ph.D. scholar in Structural Biology at IIT Gandhinagar. Cryo-EM, X-ray crystallography, and computational drug discovery.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink: #0E1A24;
+    --ink-2: #132330;
+    --ink-3: #182b39;
+    --line: #2C4152;
+    --paper: #E9EDE9;
+    --paper-dim: #9FB0B8;
+    --blue: #74BAE2;
+    --green: #82D9A8;
+    --amber: #E3A63D;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Source Serif 4', serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --maxw: 1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0; background:var(--ink); color:var(--paper);
+    font-family:var(--body); font-size:17px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--blue);}
+  ::selection{background:var(--amber); color:var(--ink);}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  h1,h2,h3,h4{font-family:var(--display); font-weight:600; margin:0; letter-spacing:-0.01em;}
+  .mono{font-family:var(--mono);}
+  .eyebrow{
+    font-family:var(--mono); font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--amber); display:inline-flex; align-items:center; gap:8px; margin-bottom:14px;
+  }
+  .eyebrow::before{content:"◇"; font-size:11px;}
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(14,26,36,.86); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:64px;}
+  .brand{font-family:var(--display); font-weight:700; font-size:16px; color:var(--paper); text-decoration:none; letter-spacing:.01em;}
+  .brand span{color:var(--amber);}
+  .navlinks{display:flex; gap:26px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--paper-dim); text-decoration:none; transition:color .2s;
+  }
+  .navlinks a:hover{color:var(--blue);}
+  .navcta{
+    font-family:var(--mono); font-size:12px; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--ink); background:var(--blue); padding:8px 14px; border-radius:3px; text-decoration:none;
+    white-space:nowrap;
+  }
+  .navtoggle{display:none;}
+
+  /* HERO */
+  .hero{position:relative; overflow:hidden; border-bottom:1px solid var(--line);}
+  .hero-inner{
+    position:relative; z-index:2; padding:120px 0 96px; text-align:left;
+  }
+  #diffraction{position:absolute; inset:0; z-index:1; opacity:.9;}
+  .hero h1{
+    font-size:clamp(2.3rem, 5.6vw, 4.1rem); line-height:1.04; max-width:820px; color:var(--paper);
+  }
+  .hero h1 em{font-style:normal; color:var(--blue);}
+  .hero p.lede{
+    font-family:var(--body); font-size:19px; color:var(--paper-dim); max-width:600px; margin-top:22px;
+  }
+  .hero .tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:32px;}
+  .tag{
+    font-family:var(--mono); font-size:12px; letter-spacing:.03em; color:var(--paper-dim);
+    border:1px solid var(--line); padding:6px 12px; border-radius:100px; white-space:nowrap;
+  }
+  .tag b{color:var(--green); font-weight:600;}
+  .hero-links{margin-top:38px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:13px; text-transform:uppercase; letter-spacing:.05em;
+    padding:12px 20px; border-radius:3px; text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--blue); color:var(--ink); font-weight:600;}
+  .btn-ghost{border:1px solid var(--line); color:var(--paper);}
+  .btn:hover{opacity:.88;}
+
+  section{padding:88px 0; border-bottom:1px solid var(--line);}
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);}
+  .section-head p{color:var(--paper-dim); margin-top:14px; font-size:16.5px;}
+
+  /* ABOUT */
+  #about .grid{display:grid; grid-template-columns:1.3fr .9fr; gap:56px; align-items:start;}
+  #about p{color:var(--paper); font-size:17.5px;}
+  .factbox{border:1px solid var(--line); border-radius:6px; padding:22px 24px; background:var(--ink-2);}
+  .factrow{display:flex; justify-content:space-between; padding:10px 0; border-top:1px solid var(--line); font-family:var(--mono); font-size:13px;}
+  .factrow:first-child{border-top:none;}
+  .factrow span:first-child{color:var(--paper-dim);}
+  .factrow span:last-child{color:var(--paper); text-align:right;}
+
+  /* RESEARCH CARDS */
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .card{
+    background:var(--ink-2); border:1px solid var(--line); border-radius:8px; padding:28px 26px;
+    transition:transform .25s ease, border-color .25s ease;
+  }
+  .card:hover{transform:translateY(-4px); border-color:var(--blue);}
+  .card .k{font-family:var(--mono); color:var(--amber); font-size:12px; letter-spacing:.05em; text-transform:uppercase;}
+  .card h3{margin-top:10px; font-size:1.2rem;}
+  .card p{color:var(--paper-dim); font-size:15px; margin-top:12px;}
+
+  /* SKILLS */
+  .skillgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:34px 48px;}
+  .skillgroup h4{
+    font-family:var(--mono); font-size:13px; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--blue); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--line);
+  }
+  .skillgroup ul{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:8px;}
+  .skillgroup li{
+    font-family:var(--mono); font-size:12.5px; color:var(--paper); background:var(--ink-3);
+    border:1px solid var(--line); padding:6px 11px; border-radius:4px;
+  }
+
+  /* TIMELINE */
+  .tl{position:relative; padding-left:34px;}
+  .tl::before{content:""; position:absolute; left:6px; top:6px; bottom:6px; width:1px; background:var(--line);}
+  .tlitem{position:relative; padding-bottom:40px;}
+  .tlitem:last-child{padding-bottom:0;}
+  .tlitem::before{
+    content:""; position:absolute; left:-34px; top:5px; width:11px; height:11px; border-radius:50%;
+    background:var(--ink); border:2px solid var(--blue);
+  }
+  .tldate{font-family:var(--mono); font-size:12px; color:var(--amber); letter-spacing:.04em;}
+  .tlitem h3{font-size:1.15rem; margin-top:6px;}
+  .tlitem .org{color:var(--paper-dim); font-size:14.5px; font-family:var(--mono); margin-top:2px;}
+  .tlitem ul{margin:14px 0 0; padding-left:20px; color:var(--paper-dim); font-size:15px;}
+  .tlitem li{margin-bottom:6px;}
+
+  /* PUBLICATIONS */
+  .pub{
+    border-top:1px solid var(--line); padding:22px 0; display:grid; grid-template-columns:70px 1fr; gap:20px;
+  }
+  .pub:last-child{border-bottom:1px solid var(--line);}
+  .pub .yr{font-family:var(--mono); color:var(--amber); font-size:13px; padding-top:2px;}
+  .pub .cite{font-size:15.5px; color:var(--paper);}
+  .pub .cite b{color:var(--paper); font-weight:600;}
+  .pub .journal{color:var(--blue); font-style:italic; font-family:var(--body);}
+  .pill{
+    display:inline-block; font-family:var(--mono); font-size:10.5px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--green); border:1px solid var(--green); padding:2px 8px; border-radius:100px; margin-left:8px; vertical-align:middle;
+  }
+
+  /* CONF / ACHIEVEMENTS */
+  .twocol{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  .listline{border-top:1px solid var(--line); padding:14px 0; font-size:15px; color:var(--paper-dim);}
+  .listline:last-child{border-bottom:1px solid var(--line);}
+  .listline b{color:var(--paper); font-weight:600;}
+
+  /* CONTACT */
+  #contact{border-bottom:none;}
+  .contact-inner{
+    background:var(--ink-2); border:1px solid var(--line); border-radius:10px; padding:56px 48px;
+    display:flex; justify-content:space-between; align-items:center; gap:32px; flex-wrap:wrap;
+  }
+  .contact-links{display:flex; gap:14px; flex-wrap:wrap;}
+  footer{padding:32px 0; text-align:center; color:var(--paper-dim); font-family:var(--mono); font-size:12px;}
+
+  @media (max-width: 860px){
+    .navlinks{display:none;}
+    #about .grid, .cards, .skillgrid, .twocol{grid-template-columns:1fr;}
+    .hero-inner{padding:80px 0 64px;}
+    .contact-inner{flex-direction:column; text-align:center;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+  [data-reveal]{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  [data-reveal].in{opacity:1; transform:none;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="brand">D<span>.</span>SHARMA</a>
+    <ul class="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+    </ul>
+    <a class="navcta" href="mailto:dhrubsharma97@gmail.com">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <svg id="diffraction" preserveAspectRatio="xMidYMid slice"></svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Ph.D. Candidate · Structural Biology</div>
+    <h1>Solving disease-relevant<br>proteins, <em>one map at a time.</em></h1>
+    <p class="lede">Dhrubjyoti Sharma — structural and computational biologist at IIT Gandhinagar, working end-to-end from cryo-EM data collection through refinement, and from docking through molecular dynamics.</p>
+    <div class="tags">
+      <span class="tag">Cryo-EM <b>·</b> cryoSPARC</span>
+      <span class="tag">X-ray crystallography</span>
+      <span class="tag">ITC <b>·</b> FPLC/SEC</span>
+      <span class="tag">Schrödinger Suite <b>·</b> Glide / Desmond</span>
+      <span class="tag">Python</span>
+    </div>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="mailto:dhrubsharma97@gmail.com">Get in touch</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/dhrub-sharma-0397/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="btn btn-ghost" href="CV_Dhrubjyoti_Sharma.pdf" target="_blank" rel="noopener">Download CV</a>
+    </div>
+  </div>
+</header>
+
+<section id="about" data-reveal>
+  <div class="wrap grid">
+    <div>
+      <div class="eyebrow">About</div>
+      <h2>Research summary</h2>
+      <p style="margin-top:20px;">Ph.D. candidate in Structural Biology with expertise spanning experimental and computational methods for characterizing disease-associated proteins. Current research focuses on the structure and function of a therapeutic target protein implicated in Alzheimer's disease and its interaction with amyloid precursor protein (APP), combining cryo-electron microscopy, X-ray crystallography, biophysical characterization (ITC, FPLC/SEC), and computational drug discovery (molecular docking, molecular dynamics, MM-GBSA, ADME profiling).</p>
+      <p>Experienced in solving cryo-EM structures end-to-end — from data collection troubleshooting through refinement — and in running iterative, hypothesis-driven computational-to-experimental research loops.</p>
+    </div>
+    <div class="factbox">
+      <div class="factrow"><span>Location</span><span>Gandhinagar, Gujarat, India</span></div>
+      <div class="factrow"><span>Institution</span><span>IIT Gandhinagar</span></div>
+      <div class="factrow"><span>Program</span><span>Ph.D., Biological Sciences &amp; Engineering</span></div>
+      <div class="factrow"><span>Started</span><span>2022</span></div>
+      <div class="factrow"><span>Interns mentored</span><span>20</span></div>
+      <div class="factrow"><span>Teaching</span><span>3 semesters (TA)</span></div>
+      <div class="factrow"><span>Publications</span><span>6 (incl. 1 under review)</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="research" data-reveal>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Research</div>
+      <h2>Where the work sits</h2>
+      <p>Three interlocking threads: structure determination, biophysical characterization, and computation — run as one iterative loop rather than separate tracks.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="k">Structure Determination</div>
+        <h3>Cryo-EM &amp; X-ray crystallography</h3>
+        <p>End-to-end cryo-EM pipeline in cryoSPARC — template picking, 2D/3D classification, 3D variability analysis, and preferred-orientation mitigation — followed by DeepEMhancer post-processing and Phenix real-space refinement. Parallel crystallization screening and X-ray diffraction data processing.</p>
+      </div>
+      <div class="card">
+        <div class="k">Biophysics</div>
+        <h3>Binding &amp; dimerization</h3>
+        <p>ITC-based characterization of protein dimerization and small-molecule interactions, including thermogram troubleshooting and quantitative fitting in PEAQ-ITC. Dimerization mechanisms validated via SDS-PAGE and Western blotting.</p>
+      </div>
+      <div class="card">
+        <div class="k">Computation</div>
+        <h3>Drug discovery workflows</h3>
+        <p>Glide XP/SP docking, Desmond MD (up to 1000 ns), Prime MM-GBSA and Induced Fit Docking, QikProp ADME prediction, and Jaguar QM/MM analysis across independent inhibitor discovery programs — plus integrative structural modeling of multi-protein complexes using IMP.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" data-reveal>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Toolkit</div>
+      <h2>Skills &amp; techniques</h2>
+    </div>
+    <div class="skillgrid">
+      <div class="skillgroup">
+        <h4>Wet Lab</h4>
+        <ul>
+          <li>Protein purification (His-tag)</li>
+          <li>Protein crystallization</li>
+          <li>SDS-PAGE / Western blot</li>
+          <li>Molecular cloning</li>
+          <li>Mammalian cell culture</li>
+          <li>FPLC / SEC</li>
+          <li>Circular Dichroism</li>
+          <li>ITC / PEAQ-ITC</li>
+          <li>CellTiter-Glo assays</li>
+          <li>ELISA</li>
+        </ul>
+      </div>
+      <div class="skillgroup">
+        <h4>Structural &amp; Imaging</h4>
+        <ul>
+          <li>Cryo-EM (cryoSPARC)</li>
+          <li>DeepEMhancer</li>
+          <li>Phenix refinement</li>
+          <li>X-ray data processing</li>
+          <li>Negative-stain EM</li>
+        </ul>
+      </div>
+      <div class="skillgroup">
+        <h4>Computational &amp; Drug Discovery</h4>
+        <ul>
+          <li>Schrödinger Suite</li>
+          <li>Glide XP / SP</li>
+          <li>Desmond MD</li>
+          <li>Prime MM-GBSA / IFD</li>
+          <li>QikProp ADME</li>
+          <li>Jaguar QM/MM</li>
+          <li>AutoDock</li>
+          <li>GROMACS</li>
+          <li>PyMOL / ChimeraX</li>
+          <li>IMP (integrative modeling)</li>
+          <li>MDAnalysis</li>
+        </ul>
+      </div>
+      <div class="skillgroup">
+        <h4>Programming &amp; Data</h4>
+        <ul>
+          <li>Python</li>
+          <li>Structural bioinformatics scripting</li>
+          <li>Trajectory / data analysis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" data-reveal>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Experience &amp; Education</div>
+      <h2>Timeline</h2>
+    </div>
+    <div class="tl">
+      <div class="tlitem">
+        <div class="tldate">2022 — Present</div>
+        <h3>Doctoral Research Scholar</h3>
+        <div class="org">Indian Institute of Technology Gandhinagar</div>
+        <ul>
+          <li>Lead structural and biophysical characterization of a therapeutic target protein implicated in Alzheimer's disease, integrating cryo-EM, X-ray crystallography, and biochemical assays across three thesis objectives.</li>
+          <li>Solved a novel cryo-EM structure (homodimer, ~4.77 Å, C2 symmetry) in cryoSPARC, resolving preferred-orientation bias through iterative template picking, re-picking, and 3D variability analysis; refined with DeepEMhancer and Phenix.</li>
+          <li>Designed and executed ITC binding studies on dimerization and small-molecule interactions, including thermogram troubleshooting and quantitative analysis in PEAQ-ITC.</li>
+          <li>Ran end-to-end computational drug discovery workflows (Glide XP, Desmond MD, Prime MM-GBSA, QikProp) across two independent inhibitor discovery programs, feeding manuscripts in preparation.</li>
+          <li>Built an integrative structural model of a multi-protein membrane complex in IMP, encoding experimentally derived restraints into PMI topology scripts.</li>
+          <li>Validated a disease-relevant protein's dimerization mechanism via SDS-PAGE/Western blotting, confirming a cysteine-dependent disulfide-linked dimer.</li>
+          <li>Mentored 20 interns/trainees across wet-lab and computational projects — experimental design, technique training, and data interpretation.</li>
+        </ul>
+      </div>
+      <div class="tlitem">
+        <div class="tldate">2022 — Present · 3 semesters</div>
+        <h3>Graduate Teaching Assistant — Structural Biology Practicals</h3>
+        <div class="org">IIT Gandhinagar</div>
+        <ul>
+          <li>Designed and delivered laboratory practicals for structural biology coursework, including a 14-week HEWL-based practical curriculum.</li>
+        </ul>
+      </div>
+      <div class="tlitem">
+        <div class="tldate">Oct 2020 — Apr 2021</div>
+        <h3>Lecturer, Department of Biotechnology</h3>
+        <div class="org">Gurucharan College, Silchar, Assam</div>
+        <ul>
+          <li>Supervised undergraduate (TDC Science Stream) research projects.</li>
+        </ul>
+      </div>
+      <div class="tlitem">
+        <div class="tldate">Jan — Jun 2020</div>
+        <h3>Research Scholar</h3>
+        <div class="org">Bioinformatics Centre, Dept. of Biotechnology (Govt. of India), Gurucharan College</div>
+        <ul>
+          <li>Developed and maintained a bioinformatics database of disease biomarkers.</li>
+          <li>Supported infrastructural development, resource management, and traineeship/studentship program guidance.</li>
+        </ul>
+      </div>
+      <div class="tlitem">
+        <div class="tldate">2019</div>
+        <h3>M.Sc., Biotechnology</h3>
+        <div class="org">SRM Institute of Science and Technology</div>
+      </div>
+      <div class="tlitem">
+        <div class="tldate">2017</div>
+        <h3>B.Sc., Biotechnology</h3>
+        <div class="org">Assam University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications" data-reveal>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Publications</div>
+      <h2>Papers &amp; manuscripts</h2>
+    </div>
+    <div class="publist">
+      <div class="pub">
+        <div class="yr">2026<span class="pill">Under review</span></div>
+        <div class="cite"><b>Sharma, D.</b> et al. Structural and biophysical characterization of a disease-relevant protein dimerization mechanism. <span class="journal">Manuscript under review.</span></div>
+      </div>
+      <div class="pub">
+        <div class="yr">2026</div>
+        <div class="cite">Patel, M., Aghara, H., Chadha, P., Solanki, H., <b>Sharma, D.</b>, Thiruvenkatam, V., &amp; Mandal, P. Synergistic effect of sodium acetate and sodium butyrate in ameliorating ethanol-induced hepatic inflammation through modulation of the NF-κB signaling pathway. <span class="journal">Mediators of Inflammation</span>, 2026(1), 5835567.</div>
+      </div>
+      <div class="pub">
+        <div class="yr">2025</div>
+        <div class="cite">Chadha, P., Aghara, H., Solanki, H., Patel, M., <b>Sharma, D.</b>, Thiruvenkatam, V., &amp; Mandal, P. Modulation of TNFα-driven neuroinflammation by Gardenin A: insights from in vitro, in vivo, and in silico studies. <span class="journal">Frontiers in Pharmacology</span>, 16, 1681403.</div>
+      </div>
+      <div class="pub">
+        <div class="yr">2025</div>
+        <div class="cite">Chadha, P., Aghara, H., Johnson, D., <b>Sharma, D.</b>, Odedara, M., Patel, M., Kumar, H., Thiruvenkatam, V., &amp; Mandal, P. Gardenin A alleviates alcohol-induced oxidative stress and inflammation in HepG2 and Caco2 cells via AMPK/Nrf2 pathway. <span class="journal">Bioorganic Chemistry</span>, 161, 108543.</div>
+      </div>
+      <div class="pub">
+        <div class="yr">2023</div>
+        <div class="cite">Naha, A., Debroy, R., <b>Sharma, D.</b>, Shah, M.P., &amp; Nath, S. Microbial fuel cell: A state-of-the-art and revolutionizing technology for efficient energy recovery. <span class="journal">Cleaner and Circular Bioeconomy</span>, 100050.</div>
+      </div>
+      <div class="pub">
+        <div class="yr">2020</div>
+        <div class="cite">Sannasimuthu, A., <b>Sharma, D.</b>, Paray, B.A., Al-Sadoon, M.K., &amp; Arockiaraj, J. Intracellular oxidative damage due to antibiotics on gut bacteria reduced by glutathione oxidoreductase-derived antioxidant molecule GM15. <span class="journal">Archives of Microbiology</span>, 1–7.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="conferences" data-reveal>
+  <div class="wrap twocol">
+    <div>
+      <div class="eyebrow">Conferences</div>
+      <h2 style="font-size:1.5rem; margin-bottom:18px;">Presentations &amp; workshops</h2>
+      <div class="listline"><b>Oral Presentation (accepted)</b> — IUCr 2026, International Union of Crystallography Congress, Calgary, Canada (Aug 2026)</div>
+      <div class="listline"><b>Poster</b> — "Horizons in Structural and Computational Biology, 2025" (Feb 28 – Mar 1, 2025)</div>
+      <div class="listline"><b>Participant</b> — "Understanding the Breathing of Biomolecules: Recent Advances in Cryo-EM and Chemical Biology," IIT Bombay (Mar 2024)</div>
+      <div class="listline"><b>Workshop</b> — "Drug Design Against COVID-19 Targets," Wisecorner Laboratories &amp; CIIC, Chennai (2020)</div>
+      <div class="listline"><b>Workshops</b> — "Python for Biologists"; "Targeted Gene Editing using CRISPR Technology" (2020)</div>
+      <div class="listline"><b>Training</b> — 15-day program, Guwahati Biotech Park, IIT Guwahati (2018)</div>
+    </div>
+    <div>
+      <div class="eyebrow">Achievements</div>
+      <h2 style="font-size:1.5rem; margin-bottom:18px;">Certifications &amp; scores</h2>
+      <div class="listline"><b>IUCr 2026</b> — Accepted oral presentation, Calgary</div>
+      <div class="listline"><b>Scientific Writing Certification</b> — IIT Gandhinagar (2024)</div>
+      <div class="listline"><b>GATE 2022</b> — Biotechnology, AIR 1323</div>
+      <div class="listline"><b>CSIR NET (Lectureship)</b> — Life Science, AIR 96</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-reveal>
+  <div class="wrap">
+    <div class="contact-inner">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h2 style="font-size:1.7rem;">Open to structural biology &amp; computational roles.</h2>
+      </div>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:dhrubsharma97@gmail.com">dhrubsharma97@gmail.com</a>
+        <a class="btn btn-ghost" href="tel:+917002855009">+91 7002855009</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/dhrub-sharma-0397/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Dhrubjyoti Sharma · Gandhinagar, India</footer>
+
+<script>
+// Bragg-spot diffraction pattern hero background
+(function(){
+  const svg = document.getElementById('diffraction');
+  const ns = 'http://www.w3.org/2000/svg';
+  const W = 1400, H = 700;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  const cx = W*0.72, cy = H*0.42;
+  const defs = document.createElementNS(ns,'defs');
+  const grad = document.createElementNS(ns,'radialGradient');
+  grad.setAttribute('id','bg-grad');
+  grad.innerHTML = '<stop offset="0%" stop-color="#182b39"/><stop offset="100%" stop-color="#0E1A24"/>';
+  defs.appendChild(grad);
+  svg.appendChild(defs);
+
+  const bg = document.createElementNS(ns,'rect');
+  bg.setAttribute('width', W); bg.setAttribute('height', H); bg.setAttribute('fill','url(#bg-grad)');
+  svg.appendChild(bg);
+
+  // rings
+  for(let r = 60; r < 620; r += 70){
+    const c = document.createElementNS(ns,'circle');
+    c.setAttribute('cx',cx); c.setAttribute('cy',cy); c.setAttribute('r',r);
+    c.setAttribute('fill','none'); c.setAttribute('stroke','#22384a'); c.setAttribute('stroke-width','1');
+    svg.appendChild(c);
+  }
+
+  const spots = [];
+  let seed = 42;
+  function rnd(){ seed = (seed*9301+49297)%233280; return seed/233280; }
+
+  for(let ring = 0; ring < 9; ring++){
+    const radius = 55 + ring*68 + rnd()*10;
+    const count = 6 + ring*3;
+    for(let i=0;i<count;i++){
+      const angle = (i/count)*Math.PI*2 + ring*0.4 + rnd()*0.15;
+      const x = cx + Math.cos(angle)*radius;
+      const y = cy + Math.sin(angle)*radius*0.72;
+      if(rnd() > 0.42){
+        const size = 1.4 + rnd()*3.6 * (1 - ring/12);
+        const colorRoll = rnd();
+        const fill = colorRoll > 0.88 ? '#82D9A8' : (colorRoll > 0.7 ? '#E3A63D' : '#74BAE2');
+        const dot = document.createElementNS(ns,'circle');
+        dot.setAttribute('cx', x); dot.setAttribute('cy', y); dot.setAttribute('r', size);
+        dot.setAttribute('fill', fill);
+        dot.setAttribute('opacity', 0.25 + rnd()*0.55);
+        svg.appendChild(dot);
+        spots.push({el:dot, base:parseFloat(dot.getAttribute('opacity')), phase:rnd()*Math.PI*2});
+      }
+    }
+  }
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduceMotion){
+    function animate(t){
+      spots.forEach(s=>{
+        const flick = Math.sin(t*0.0007 + s.phase)*0.18;
+        s.el.setAttribute('opacity', Math.max(0.08, s.base + flick));
+      });
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  }
+
+  // fade mask on left so text stays readable
+  const fade = document.createElementNS(ns,'rect');
+  const lgrad = document.createElementNS(ns,'linearGradient');
+  lgrad.setAttribute('id','fadeGrad');
+  lgrad.setAttribute('x1','0'); lgrad.setAttribute('x2','1'); lgrad.setAttribute('y1','0'); lgrad.setAttribute('y2','0');
+  lgrad.innerHTML = '<stop offset="0%" stop-color="#0E1A24" stop-opacity="1"/><stop offset="55%" stop-color="#0E1A24" stop-opacity="0.55"/><stop offset="100%" stop-color="#0E1A24" stop-opacity="0"/>';
+  defs.appendChild(lgrad);
+  fade.setAttribute('width', W); fade.setAttribute('height', H); fade.setAttribute('fill','url(#fadeGrad)');
+  svg.appendChild(fade);
+})();
+
+// scroll reveal
+(function(){
+  const els = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.12});
+  els.forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
